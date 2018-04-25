@@ -4,7 +4,7 @@ using RPS.Models;
 
 namespace RPS.Controllers
 {
-    public class RockPaperScissorsController : Controller
+    public class HomeController : Controller
     {
         [HttpGet("/")]
         public ActionResult Index()

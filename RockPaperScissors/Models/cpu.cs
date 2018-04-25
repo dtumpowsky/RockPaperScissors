@@ -6,16 +6,13 @@ namespace RPS.Models
 {
     public class ComputerChoice
     {
-        private string _rock;
-        private string _paper;
-        private string _scissors;
-        private static List<ComputerChoice> _instances = new List<ComputerChoice> {};
 
-        public ComputerChoice(string Rock, string Paper, string Scissors)
+        public static string[] options = {"rock", "paper", "scissors"};
+
+
+        public string Choose()
         {
-          _rock = Rock;
-          _paper = Paper;
-          _scissors = Scissors;
+	        return options[new Random().Next(0,3)];
         }
     }
 }
