@@ -6,15 +6,26 @@ using System;
 namespace RPS.Tests
 {
     [TestClass]
-    public class PlayerChoiceTests
+    public class GameTests
     {
 
         [TestMethod]
-        public void ChooseRock_ReturnRock_String()
+        public void PlayGame_ReturnResult_String()
         {
-            PlayerChoice testGetRock = new PlayerChoice("rock", "paper", "scissors");
+          ComputerChoice newCpuPlayer = new ComputerChoice();
+          string cpuChoice = newCpuPlayer.Choose();
+          //public Game(string <PlayerChoice>, string <cpuChoice>)
+          Console.WriteLine(cpuChoice);
+          Game testPlayGame = new Game("rock", cpuChoice);
+            Assert.AreEqual("You Lose", testPlayGame.GetResult());
+        }
 
-            Assert.AreEqual("rock", testGetRock.GetRock());
+        [TestMethod]
+        public void PlayGame_ComputerMakesSelection_True()
+        {
+          ComputerChoice newCpuPlayer = new ComputerChoice();
+          string cpuChoice = newCpuPlayer.Choose();
+          Assert.IsTrue(Array.IndexOf(ComputerChoice.options, cpuChoice) > -1);
         }
     }
 }
